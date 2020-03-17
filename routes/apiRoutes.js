@@ -24,5 +24,18 @@ module.exports = function (app) {
         })
         res.json(notesData)
     })
+    app.delete("/api/notes/:id", function(req, res) {
+        let deletedData = req.params.id;
+      
+        console.log(deletedData);
+      
+        for (let i = 0; i <notesData.length; i++) {
+          if (deletedData === notesData[i].title) {
+            notesData.splice(i, 1)
+          }
+        }
+      
+        
+      });
 
 }
