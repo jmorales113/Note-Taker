@@ -4,7 +4,7 @@ let notesData;
 
 module.exports = function (app) {
 
-    fs.readFile("db.json", "utf", function(err, data){
+    fs.readFile("./db/db.json", "utf8", function(err, data){
         if (err) throw err;
         notesData = JSON.parse(data)
     })
@@ -18,24 +18,26 @@ module.exports = function (app) {
         let newNotes = req.body 
         notesData.push(newNotes)
         let parsedData = JSON.stringify(notesData)
-        fs.writeFile(path.join("db.json"), parsedData, (err) =>{
+        fs.writeFile(path.join("./db/db.json"), parsedData, (err) =>{
             if (err) throw err
 
         })
         res.json(notesData)
     })
+
     app.delete("/api/notes/:id", function(req, res) {
         let deletedData = req.params.id;
       
-        console.log(deletedData);
-      
-        for (let i = 0; i <notesData.length; i++) {
+        for (let i = 0; i < notesData.length; i++) {
           if (deletedData === notesData[i].title) {
             notesData.splice(i, 1)
           }
         }
-      
+        let parsedData = JSON.stringify(notesData)
+        fs.writeFile(path.join("./db/db.json"), parsedData, (err) =>{
+            if (err) throw err
         
       });
-
+      res.json(notesData)
+    })
 }
