@@ -7,5 +7,10 @@ Task: Create an application that can be used to write, save, and delete notes. T
 Deployaed application: https://safe-chamber-52095.herokuapp.com/
 
 
+![image](https://user-images.githubusercontent.com/57970306/77240947-623c8580-6ba9-11ea-8fea-9990c27665c4.png)
+
+![image](https://user-images.githubusercontent.com/57970306/77240951-6ec0de00-6ba9-11ea-917d-abb0fa4cadc3.png)
+
+
 
 
